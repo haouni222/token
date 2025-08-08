@@ -39,10 +39,4 @@ contract Fromage42Token is ERC20, AccessControl, Ownable
     {
         revokeRole(role, user);
     }
-
-    function recoverERC20(address tokenAddress, uint256 amount) external onlyOwner 
-    {
-        require(tokenAddress != address(this), "Can't withdraw this token");
-        IERC20(tokenAddress).transfer(owner(), amount);
-    }
 }
